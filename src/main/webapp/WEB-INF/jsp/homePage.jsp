@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,36 +69,15 @@
                 <div class="title-h2"><span class="title-color-blue">Наши</span> подразделения</div>
                 <div class="subtitle title-body">Мы разделили все отделения, чтобы получение информации об услугах нашего центра стало более удобным и информативным для наших дорогих пациентов.</div>
                 <div class="department-grid">
-                    <div class="department-item">
-                        <div class="depart-img"><img src="${contextPath}/resources/img/icon-1.png" alt=""></div>
-                        <div class="depart-name title-h5 divider-30">Пульмонология</div>
-                        <div class="depart-text title-body divider-20"> Подразделение, занимающееся изучением, диагностикой и лечением заболеваний лёгких и нижних дыхательных.</div>        
-                    </div>
-                    <div class="department-item">
-                        <div class="depart-img"><img src="${contextPath}/resources/img/icon-2.png" alt=""></div>
-                        <div class="depart-name title-h5 divider-30">Кардиология</div>
-                        <div class="depart-text title-body divider-20"> Подразделение, занимающееся изучением сердечно-сосудистой системы человека, строения и развития сердца и сосудов.</div>        
-                    </div>
-                    <div class="department-item">
-                        <div class="depart-img"><img src="${contextPath}/resources/img/icon-3.png" alt=""></div>
-                        <div class="depart-name title-h5 divider-30">Неврология</div>
-                        <div class="depart-text title-body divider-20"> Подразделение, занимающееся изучением болезней нервной системы, центральной и периферической.</div>        
-                    </div>
-                    <div class="department-item">
-                        <div class="depart-img"><img src="${contextPath}/resources/img/icon-4.png" alt=""></div>
-                        <div class="depart-name title-h5 divider-30">Стоматология</div>
-                        <div class="depart-text title-body divider-20"> Подразделение, занимающееся изучением зубов, их строения, функционирования и заболеваний, профилактики и лечения.</div>        
-                    </div>
-                    <div class="department-item">
-                        <div class="depart-img"><img src="${contextPath}/resources/img/icon-5.png" alt=""></div>
-                        <div class="depart-name title-h5 divider-30">Урология</div>
-                        <div class="depart-text title-body divider-20"> Подразделение, изучающее этиологию, патогенез, а также проведение диагностики заболеваний органов мочевой системы.</div>        
-                    </div>
-                    <div class="department-item">
-                        <div class="depart-img"><img src="${contextPath}/resources/img/icon-6.png" alt=""></div>
-                        <div class="depart-name title-h5 divider-30">Офтальмология</div>
-                        <div class="depart-text title-body divider-20"> Подразделение, занимающееся изучением глаз, его анатомии, физиологии, а также методов лечения и профилактики глазных болезней.</div>        
-                    </div>
+                  
+                  	<c:forEach var="element" items="${subList}">
+	                  	<div class="department-item">
+	                        <div class="depart-img"><img src="${element.logo}" alt=""></div>
+	                        <div class="depart-name title-h5 divider-30">${element.subName}</div>
+	                        <div class="depart-text title-body divider-20">${element.description}</div>        
+	                    </div>
+                  	</c:forEach>
+                  
                 </div>
             </div>
         </section> 
@@ -163,36 +144,22 @@
         
         <section class="team-grid">
             <div class=" team-grid-inner container paddings">
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="${contextPath}/resources/img/doctor-1.jpg" alt="">
-                    </div>
-                    <div class="team-info">
-                        <div class="team-name title-h5 divider-30">Георгий Носов</div>
-                        <div class="title-body divider-10">Кардиолог</div>
-                        <div class="title-body divider-10">Профилактика, диагностика и лечение сердечно-сосудистых заболеваний.</div>
-                    </div>
-                </div>
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="${contextPath}/resources/img/doctor-2.jpg" alt="">
-                    </div>
-                    <div class="team-info">
-                        <div class="team-name title-h5 divider-30">Эмилия Кларк</div>
-                        <div class="title-body divider-10">Невролог</div>
-                        <div class="title-body divider-10">Профилактика, диагностика, выявление и лечение болезней нервной системы.</div>
-                    </div>
-                </div>
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="${contextPath}/resources/img/doctor-3.jpg" alt="">
-                    </div>
-                    <div class="team-info">
-                        <div class="team-name title-h5 divider-30">Анна Иванова</div>
-                        <div class="title-body divider-10">Уролог</div>
-                        <div class="title-body divider-10">Профилактика, диагностика и лечение органов мочеполовой системы.</div>
-                    </div>
-                </div>
+            
+            	<c:forEach var="element" items="${docList}">
+		            <div class="team-item">
+	                    <div class="team-img">
+	                        <img src="${element.photo}" alt="">
+	                    </div>
+	                    <div class="team-info">
+	                        <div class="team-name title-h5 divider-30">${element.person.fio}</div>
+	                        <div class="title-body divider-10">${element.post.postName}</div>
+	                        <div class="title-body divider-10">${element.post.description}</div>
+	                    </div>
+	                </div>
+	                    
+                </c:forEach>
+            
+              
             </div>
         </section>
         
@@ -204,81 +171,70 @@
             
                 <div class="contact-form-main-wrapper">
                     <div class="contact-form-form-wrapper">
-                    <form action="" method="POST">
+                    <form:form action="/bookingVisit" method="POST" modelAttribute="bookingForm">
                         <div class="contact-form-mb-5">
                             <label for="name" class="contact-form-form-label"> ФИО </label>
-                            <input
+                            <form:input
                                 type="text"
                                 name="name"
                                 id="name"
                                 placeholder="Фамилия Имя Отчество"
                                 class="contact-form-form-input"
+                                path="fio" 
                             />
                         </div>
                         <div class="contact-form-mb-5">
                             <label for="phone" class="contact-form-form-label"> Телефон </label>
-                            <input
+                            <form:input
                                 type="text"
                                 name="phone"
                                 id="phone"
                                 placeholder="+375 (29) 123-45-67"
                                 class="contact-form-form-input"
+                                path="telephone" 
                             />
                         </div>
                         <div class="contact-form-mb-5">
                             <label for="email" class="contact-form-form-label"> Email </label>
-                            <input
+                            <form:input
                                 type="email"
                                 name="email"
                                 id="email"
                                 placeholder="Ваш Email"
                                 class="contact-form-form-input"
+                                path="email" 
                             />
                         </div>
-
-                        <div class="flex flex-wrap contact-form--mx-3">
-                            <div class="w-full sm:w-half contact-form-px-3">
-                                <div class="contact-form-mb-5">
+                        
+                        <div class="contact-form-mb-5">
                                     <label for="select"  class="contact-form-form-label">Отделение</label>
-                                    <select id="standard-select" class="contact-form-form-input">
-                                        <option value="Кардиология">Пульмонология</option>
-                                        <option value="Урология">Урология</option>
-                                        <option value="Стоматология">Стоматология</option> 
-                                    </select>                           
-                                </div>
-                            </div>
-                            <div class="w-full sm:w-half contact-form-px-3">
-                                <div class="contact-form-mb-5">
-                                    <label for="select"  class="contact-form-form-label">Врач</label>
-                                    <select id="standard-select" class="contact-form-form-input">
-                                        <option value="Кардиология">Носов Григорий</option>
-                                        <option value="Урология">Иванова Анна</option>
-                                        <option value="Стоматология 3">Зайцев Виктор</option> 
-                                    </select>                           
-                                </div>
-                            </div>
-                        </div>
+                                    <form:select id="standard-select" class="contact-form-form-input" path="subdivision" >
+                                        <form:options items="${subListForForm}"  itemLabel="subName"></form:options>
+                                    </form:select>                           
+                       </div>
 
                         <div class="flex flex-wrap contact-form--mx-3">
                             <div class="w-full sm:w-half contact-form-px-3">
                                 <div class="contact-form-mb-5 w-full">
                                 <label for="date" class="contact-form-form-label"> Дата </label>
-                                <input
+                                <form:input
                                     type="date"
                                     name="date"
                                     id="date"
                                     class="contact-form-form-input"
+                                    path="dateVisit" 
                                 />
                                 </div>
                             </div>
                             <div class="w-full sm:w-half contact-form-px-3">
                                 <div class="contact-form-mb-5">
                                 <label for="time" class="contact-form-form-label"> Время </label>
-                                <input
+                                <form:input
                                     type="time"
                                     name="time"
                                     id="time"
                                     class="contact-form-form-input"
+                                    path="timeVisit" 
                                 />
                                 </div>
                             </div>
@@ -286,7 +242,7 @@
                         <div>
                             <button class="contact-form-btn divider-20">Забронировать прием</button>
                         </div>
-                    </form>
+                    </form:form>
                     </div>
                 </div>
             </div>
