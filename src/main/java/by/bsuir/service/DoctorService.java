@@ -18,4 +18,10 @@ public class DoctorService {
 		
 		return doctorRepository.findByShowOnHome(showOnHome);
 	}
+	
+	public List<Doctor> getActual(){
+		boolean actual = true;
+		
+		return doctorRepository.findByActual(actual);
+	}
 }
