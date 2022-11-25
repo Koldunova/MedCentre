@@ -39,10 +39,10 @@
                 
                 <div id="navbarSupportedContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="#" class="nav-link ">Главная <span class="sr-only">(current)</span></a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Отделения</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Врачи</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Контакты</a></li>
+                        <li class="nav-item active"><a href="/" class="nav-link ">Главная <span class="sr-only">(current)</span></a></li>
+                        <li class="nav-item"><a href="/subdivision" class="nav-link">Отделения</a></li>
+                        <li class="nav-item"><a href="/doctor" class="nav-link">Врачи</a></li>
+                        <li class="nav-item"><a href="/contacts" class="nav-link">Контакты</a></li>
                     </ul>
                     <a href="#"><iconify-icon icon="ant-design:user-outlined" class="icon-account" ></iconify-icon></a>
                 </div>
