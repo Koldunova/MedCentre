@@ -10,7 +10,7 @@
 
     <title>Medical Center</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;700&display=swap" rel="stylesheet">
@@ -22,8 +22,8 @@
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.0/dist/iconify-icon.min.js"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
 
 </head>
 
@@ -81,12 +81,6 @@
                           </thead>
                           <tbody>
                            <c:forEach var="element" items="${visitList}">
-			                  	<div class="department-item">
-			                        <div class="depart-img"><img src="${element.logo}" alt=""></div>
-			                        <div class="depart-name title-h5 divider-30">${element.subName}</div>
-			                        <div class="depart-text title-body divider-20">${element.description}</div>        
-			                    </div>
-			                    
 			                    <tr>
 	                              <td>${element.doctor.person.fio}</td>
 	                              <td>${element.doctor.room}</td>
@@ -164,9 +158,10 @@
             </section>
          
 
+
     <!-- Scripts -->
-    <script src="js/jquery-3.6.1.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="${contextPath}/resources/js/jquery-3.6.1.min.js"></script>
+    <script src="${contextPath}/resources/js/script.js"></script>
     
 </body>
 </html>
