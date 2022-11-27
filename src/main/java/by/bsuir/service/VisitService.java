@@ -25,4 +25,19 @@ public class VisitService {
 		
 		return visits;
 	}
+	
+	public void deleteVisit(Visit visit) {
+		visitRepository.delete(visit);
+	}
+	
+	public Visit findById(long id) {
+		Visit visit = visitRepository.findById(id);
+		return visit;
+	}
+	
+	public void deleteVisit(long id) {
+		Visit visit = findById(id);
+		deleteVisit(visit);
+		
+	}
 }

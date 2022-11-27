@@ -88,7 +88,7 @@
 	                              <td>${element.visitDate}</td>
 	                              <td>${element.timeVisit}</td>
 	                              <td class="button-section">
-	                                <a class="button button-style-flat button-size-small" href="#">Отменить прием</a>
+	                                <a class="button button-style-flat button-size-small" href="deleteVisit?id=${element.id}">Отменить прием</a>
 	                              </td>
 	                            </tr>
 		                  </c:forEach>

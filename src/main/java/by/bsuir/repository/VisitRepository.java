@@ -19,4 +19,6 @@ public interface VisitRepository extends JpaRepository<Visit, Long>{
 			+ " AND "
 			+ "v.visitDate >= :currentDate")
 	List<Visit> findFutureVisitForPatient(@Param("patient") Patient patient, @Param("currentDate") Date currentDate);
+
+	Visit findById(long id);
 }
