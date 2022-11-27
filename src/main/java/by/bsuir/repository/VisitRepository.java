@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import by.bsuir.domain.Doctor;
 import by.bsuir.domain.Patient;
 import by.bsuir.domain.Visit;
 
@@ -21,4 +22,10 @@ public interface VisitRepository extends JpaRepository<Visit, Long>{
 	List<Visit> findFutureVisitForPatient(@Param("patient") Patient patient, @Param("currentDate") Date currentDate);
 
 	Visit findById(long id);
+	
+	@Query("SELECT v FROM Visit v"
+			+ " WHERE v.doctor = :doctor"
+			+ " AND "
+			+ " v.visitDate >= :currentDate")
+	List<Visit> findCurrentVisitForDoctor(@Param("doctor") Doctor doctor, @Param("currentDate") Date currentDate);
 }

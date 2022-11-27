@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import by.bsuir.domain.Doctor;
+import by.bsuir.domain.Person;
 import by.bsuir.repository.DoctorRepository;
 
 @Service
@@ -24,4 +25,16 @@ public class DoctorService {
 		
 		return doctorRepository.findByActual(actual);
 	}
+	
+	public Doctor getDoctorByPerson(Person person) {
+		List<Doctor> doctor = doctorRepository.findByPerson(person);
+		
+		if (doctor.size()>0) {
+			return doctor.get(0);
+		}
+		
+		return null;
+	}
+	
+	
 }
