@@ -44,7 +44,8 @@
                         <li class="nav-item"><a href="/doctor" class="nav-link">Врачи</a></li>
                         <li class="nav-item"><a href="/contacts" class="nav-link">Контакты</a></li>
                     </ul>
-                    <a href="#"><iconify-icon icon="ant-design:user-outlined" class="icon-account" ></iconify-icon></a>
+                    <a href="/myAccount"><iconify-icon icon="ant-design:user-outlined" class="icon-account" ></iconify-icon></a>
+                    <a href="/logout"><iconify-icon icon="ic:baseline-log-out" class="icon-account" ></iconify-icon></a>
                 </div>
             </div>
         </nav>

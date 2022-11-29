@@ -1043,7 +1043,9 @@ a:hover{
     color: #3c3950;
   }
 
-
+.authorization .contact-form-form-input{
+	padding: 12px 24px 12px 44px;
+}
 
 
 

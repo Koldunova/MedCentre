@@ -19,4 +19,12 @@ public class UserService {
 		
 		return user;
 	}
+
+	public User getUserByEmail(String email){
+		User user = new User();
+
+		user = userRepository.findByEmailAddress(email);
+
+		return user;
+	}
 }

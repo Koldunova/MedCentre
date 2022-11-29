@@ -3,12 +3,14 @@ package by.bsuir.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.SessionHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import by.bsuir.domain.Patient;
+import by.bsuir.domain.Role;
 import by.bsuir.domain.User;
 import by.bsuir.domain.Visit;
 import by.bsuir.service.PatientService;
@@ -28,7 +30,7 @@ public class CabinetController {
 	@GetMapping("/account")
 	public String pacientCabinet(Model model) {
 		//Костыль
-		long id= 1;
+		long id= 2;
 		User user =  userService.getUserById(id);
 		
 		Patient patient = patientService.findPatientForUser(user);
@@ -48,5 +50,25 @@ public class CabinetController {
 		} catch (Exception e) {
 		}
 		return "redirect:/account";
+	}
+	
+	@GetMapping("/myAccount")
+	public String openAccount(Model model) {
+		//костыль
+		Role r = Role.Doctor;
+		
+		if (r==Role.Pacient) {
+			return "redirect:/account";
+		}
+
+		if (r==Role.Doctor) {
+			return "redirect:/doctorVisits";
+		}
+		
+		if(r==Role.Admin) {
+			return "";
+		}
+		
+		return "redirect:/";
 	}
 }
